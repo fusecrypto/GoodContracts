@@ -235,7 +235,7 @@ contract UBIScheme is AbstractUBI {
     }
 
     /**
-     * @dev Checks weather the given address is owned by an active user.
+     * @dev Checks whether the given address is owned by an active user.
      * A registered user is a user that claimed at least one time. An
      * active user is a user that claimed at least one time but claimed
      * at least one time in the last `maxInactiveDays` days. A user that
@@ -318,13 +318,13 @@ contract UBIScheme is AbstractUBI {
 
     /**
      * @dev Function for claiming UBI. Requires contract to be active. Calls distributionFormula,
-     * calculats the amount the account can claims, and transfers the amount to the account.
+     * calculates the amount the account can claims, and transfers the amount to the account.
      * Emits the address of account and amount claimed.
      * @param _account The claimer account
      * @return A bool indicating if UBI was claimed
      */
     function _claim(address _account) internal returns (bool) {
-        // calculats the formula up today ie on day 0 there are no active users, on day 1 any user
+        // calculates the formula up today ie on day 0 there are no active users, on day 1 any user
         // (new or active) will trigger the calculation with the active users count of the day before
         // and so on. the new or inactive users that will become active today, will not take into account
         // within the calculation.
@@ -351,7 +351,7 @@ contract UBIScheme is AbstractUBI {
 
     /**
      * @dev Function for claiming UBI. Requires contract to be active and claimer to be whitelisted.
-     * Calls distributionFormula, calculats the amount the caller can claim, and transfers the amount
+     * Calls distributionFormula, calculates the amount the caller can claim, and transfers the amount
      * to the caller. Emits the address of caller and amount claimed.
      * @return A bool indicating if UBI was claimed
      */
